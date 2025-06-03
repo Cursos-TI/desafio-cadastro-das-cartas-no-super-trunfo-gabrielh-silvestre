@@ -1,25 +1,21 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
+// Desafio Super Trunfo - Países - Nível Intermediário
+// Cadastro de cartas com cálculo de Densidade Populacional e PIB per Capita
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+    // Declaração das variáveis para os atributos das duas cartas
+    char code1[4], code2[4]; // Código das cidades
+    int population1, population2; // População
+    float area1, area2; // Área em km2
+    float gdp1, gdp2; // PIB em milhões
+    int touristSpots1, touristSpots2; // Pontos turísticos
 
-    char code1[4], code2[4];
-    int population1, population2;
-    float area1, area2;
-    float gdp1, gdp2;
-    int touristSpots1, touristSpots2;
+    // Variáveis para os atributos calculados
+    float density1, density2; // Densidade Populacional
+    float gdpPerCapita1, gdpPerCapita2; // PIB per Capita
 
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-
+    // Cadastro da Carta 1
     printf("=== Cadastro de Cartas Super Trunfo - Cidades ===\n");
 
     printf("\nCarta 1:\n");
@@ -34,6 +30,7 @@ int main() {
     printf("Número de pontos turísticos: ");
     scanf("%d", &touristSpots1);
 
+    // Cadastro da Carta 2
     printf("\nCarta 2:\n");
     printf("Código da cidade (ex: B02): ");
     scanf("%3s", code2);
@@ -46,10 +43,17 @@ int main() {
     printf("Número de pontos turísticos: ");
     scanf("%d", &touristSpots2);
 
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+    // Cálculo dos atributos derivados para Carta 1
+    // Densidade Populacional = População / Área
+    density1 = population1 / area1;
+    // PIB per Capita = PIB / População
+    gdpPerCapita1 = gdp1 / population1;
 
+    // Cálculo dos atributos derivados para Carta 2
+    density2 = population2 / area2;
+    gdpPerCapita2 = gdp2 / population2;
+
+    // Exibição dos dados das cartas cadastradas, incluindo os atributos calculados
     printf("\n=== Cartas Cadastradas ===\n");
 
     printf("\nCarta 1:\n");
@@ -58,6 +62,8 @@ int main() {
     printf("Área: %.2f km2\n", area1);
     printf("PIB: %.2f milhões\n", gdp1);
     printf("Pontos turísticos: %d\n", touristSpots1);
+    printf("Densidade Populacional: %.2f hab/km2\n", density1);
+    printf("PIB per Capita: %.6f milhões/hab\n", gdpPerCapita1);
 
     printf("\nCarta 2:\n");
     printf("Código: %s\n", code2);
@@ -65,6 +71,8 @@ int main() {
     printf("Área: %.2f km2\n", area2);
     printf("PIB: %.2f milhões\n", gdp2);
     printf("Pontos turísticos: %d\n", touristSpots2);
+    printf("Densidade Populacional: %.2f hab/km2\n", density2);
+    printf("PIB per Capita: %.6f milhões/hab\n", gdpPerCapita2);
 
     return 0;
 }
